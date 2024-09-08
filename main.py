@@ -9,6 +9,8 @@ import asyncio
 
 load_dotenv()
 
+os.system("pip install -r requirements.txt")
+
 GUILD_ID = os.getenv("GUILD_ID")
 CHANNEL_ID = os.getenv("CHANNEL_ID")
 base_url = "https://yande.re/post?page="
