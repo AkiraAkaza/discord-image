@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 import asyncio
 
 load_dotenv()
-
+os.system("pip freeze > requirements.txt") 
 os.system("pip install -r requirements.txt")
 
 GUILD_ID = os.getenv("GUILD_ID")
