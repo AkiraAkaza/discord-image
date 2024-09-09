@@ -11,8 +11,8 @@ load_dotenv()
 os.system("pip freeze > requirements.txt") 
 os.system("pip install -r requirements.txt")
 
-GUILD_ID = os.environ("GUILD_ID")
-CHANNEL_ID = os.environ("CHANNEL_ID")
+GUILD_ID = 1215267422609739838
+CHANNEL_ID = 1275687058685562924
 base_url = "https://yande.re/post?page="
 
 intents = discord.Intents.default()
@@ -70,4 +70,4 @@ async def send_images():
 async def before_send_images():
     await bot.wait_until_ready()
 
-bot.run(os.environ("TOKEN"))
+bot.run(os.getenv("TOKEN"))
