@@ -8,7 +8,8 @@ from dotenv import load_dotenv
 import asyncio
 
 load_dotenv()
-os.system("pip freeze > requirements.txt") 
+os.system("pip freeze > requirements.txt")
+os.system('pip install --upgrade pip') 
 os.system("pip install -r requirements.txt")
 
 GUILD_ID = 1215267422609739838
