@@ -1,7 +1,7 @@
 const { Client, GatewayIntentBits } = require('discord.js');
 const axios = require('axios');
 const cheerio = require('cheerio');
- fs = require('fs');
+const fs = require('fs');
 
 const client = new Client({
   intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages]
