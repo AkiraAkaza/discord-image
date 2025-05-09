@@ -66,17 +66,18 @@ async function scanAndSendImages() {
       const $ = cheerio.load(response.data);
 
       let foundImage = false;
-      $('img[src$=".jpg"]').each(async (i, el) => {
+      const imgElements = $('img[src$=".jpg"]').toArray();
+      for (const el of imgElements) {
         const imgSrc = $(el).attr('src');
         if (imgSrc) {
           const fullImgUrl = imgSrc.startsWith('http') ? imgSrc : BASE_URL + imgSrc;
           console.log(`Gửi hình: ${fullImgUrl}`);
-          await channel.send(fullImgUrl);
+          await channel.send({ files: [fullImgUrl] }); // Gửi ảnh thay vì chỉ link
           foundImage = true;
-          await new Promise(r => setTimeout(r, 3000)); // Delay 3s để tránh rate limit
+          await new Promise(r => setTimeout(r, 3000));
         }
-      });
-
+      }
+      
       if (!foundImage) {
         console.log(`Không tìm thấy ảnh ở ${htmlLink}, lưu vào visited.`);
       }
