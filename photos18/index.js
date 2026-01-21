@@ -1,4 +1,3 @@
-require('dotenv').config();
 const { Client, GatewayIntentBits } = require('discord.js');
 const axios = require('axios');
 const cheerio = require('cheerio');
@@ -145,4 +144,4 @@ client.once('clientReady', () => {
   setInterval(crawlAndSend, 15 * 60 * 1000); // 15 phút
 });
 
-client.login(process.env.DISCORD_TOKEN);
+client.login('');
